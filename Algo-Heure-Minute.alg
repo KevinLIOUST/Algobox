@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Algo>
-    <description courant="SI (heure==23 ET minute==60) ALORS" texte=""/>
+    <description courant="TANT_QUE (minute&lt;0 OU minute>59) FAIRE" texte=""/>
     <extension extnom="inactif"/>
     <fonction fctcode="" fctetat="inactif"/>
     <F2 F2etat="inactif" F2lignes="" F2para="" F2defaut=""/>
@@ -14,8 +14,20 @@
     <item algoitem="DEBUT_ALGORITHME" code="101#debutalgo">
         <item algoitem="AFFICHER &quot;Veuillez saisir les heures : &quot;" code="4#Veuillez saisir les heures : #0"/>
         <item algoitem="LIRE heure" code="2#heure#pasliste"/>
+        <item algoitem="TANT_QUE (heure&lt;0 OU heure>23) FAIRE" code="15#heure&lt;0 OU heure>23">
+            <item algoitem="DEBUT_TANT_QUE" code="16#debuttantque"/>
+            <item algoitem="AFFICHER &quot;Il faut une heure entre 0 et 23 inclus : &quot;" code="4#Il faut une heure entre 0 et 23 inclus : #0"/>
+            <item algoitem="LIRE heure" code="2#heure#pasliste"/>
+            <item algoitem="FIN_TANT_QUE" code="17#fintantque"/>
+        </item>
         <item algoitem="AFFICHER &quot;Veuillez saisir les minutes : &quot;" code="4#Veuillez saisir les minutes : #0"/>
         <item algoitem="LIRE minute" code="2#minute#pasliste"/>
+        <item algoitem="TANT_QUE (minute&lt;0 OU minute>59) FAIRE" code="15#minute&lt;0 OU minute>59">
+            <item algoitem="DEBUT_TANT_QUE" code="16#debuttantque"/>
+            <item algoitem="AFFICHER &quot;Il faut une minute entre 0 et 59 inclus : &quot;" code="4#Il faut une minute entre 0 et 59 inclus : #0"/>
+            <item algoitem="LIRE minute" code="2#minute#pasliste"/>
+            <item algoitem="FIN_TANT_QUE" code="17#fintantque"/>
+        </item>
         <item algoitem="minute PREND_LA_VALEUR minute+1" code="5#minute#minute+1#pasliste"/>
         <item algoitem="SI (minute>=60) ALORS" code="6#minute>=60">
             <item algoitem="DEBUT_SI" code="7#debutsi"/>
